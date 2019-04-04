@@ -19,3 +19,18 @@ docker-compose up
 
 ## Development
 Develop inside mytheme folder. To compile sass|scss and js files, run `npm run build`. For distribution, run `npm run dist`. And for hot reload, run `npm run watch`.
+
+## Installing Plugins
+Due to the way plugin folder is mounted in docker, you have to add `define('FS_METHOD', 'direct');` to wp-config.php.
+
+
+```sh
+# Get container id
+docker ps
+docker exec -it <wordpress_container_id> bash
+
+# Now inside wordpress container
+apt-get update
+apt-get install vim
+vim wp-config.php
+```

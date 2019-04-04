@@ -40,7 +40,9 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: './css/build/main.min.[hash].css'
     }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: ['./js/build/*', './css/build/*']
+    })
   ],
   optimization: {
     minimizer: [

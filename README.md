@@ -34,3 +34,22 @@ apt-get update
 apt-get install vim
 vim wp-config.php
 ```
+
+
+## Copying existing project with duplicator
+1. Install Duplicator plugin in old project
+2. Click create new
+3. Download both installer and archive
+4. Copy installer.php and archive using the following command
+
+```sh
+# Remove all existing files
+docker exec -it <container> bash
+rm -rf /var/www/
+exit
+
+docker cp <container>:/installer.php /var/www/html/
+docker cp <container>:/archive /var/www/html/
+```
+5. Go to localhost:8082/installer.php
+6. `db` as host, wordpress as user and password
